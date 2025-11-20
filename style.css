@@ -1,0 +1,697 @@
+/* =========================================================
+   Kristyn He Portfolio — global styles
+   ====================================================== */
+
+:root {
+  --light-bg: #FDFDFD;
+  --light-text: #F64F4B;
+  --light-hover: #F4A79F;
+
+  --dark-bg: #0f0f10;
+  --dark-text: #E2E2E2;
+  --dark-hover: #F4A79F;
+
+  --pill-bg: #FFEDEA; /* Metzger block */
+
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Theme tokens propagate from body */
+
+body.theme-light {
+  --page-bg: var(--light-bg);
+  --page-text: var(--light-text);
+  --link-hover: var(--light-hover);
+  --border-color: #f1b1ac;
+  --index-row-hover: #ffeceb;
+}
+
+body.theme-dark {
+  --page-bg: var(--dark-bg);
+  --page-text: var(--dark-text);
+  --link-hover: var(--dark-hover);
+  --border-color: #444444;
+  --index-row-hover: #202123;
+}
+
+body {
+  background-color: var(--page-bg);
+  color: var(--page-text);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* --------------------- Layout helpers ------------------- */
+
+.page {
+  padding-bottom: 72px;
+}
+
+/* ---------------------- Header & nav -------------------- */
+
+.site-header {
+  padding: 24px 40px 8px;
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.brand-block {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 13px;
+}
+
+.brand-name {
+  font-weight: 500;
+}
+
+.brand-tagline {
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+.nav-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.4rem;
+  align-items: center;
+}
+
+.nav-link {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  position: relative;
+  transition: color 0.18s ease, opacity 0.18s ease, background-color 0.18s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--link-hover);
+  outline: none;
+}
+
+.nav-link.is-current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+}
+
+.nav-toggle {
+  opacity: 0.7;
+}
+
+.nav-toggle.active {
+  opacity: 1;
+}
+
+/* ---------------- Metzger-style controls block ---------- */
+
+.index-controls {
+  padding: 12px 40px 0;
+}
+
+.view-filter-block {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0;
+  background-color: var(--pill-bg);
+  padding: 8px 16px 10px;
+  border-radius: 4px;
+}
+
+body.theme-dark .view-filter-block {
+  background-color: rgba(244, 167, 159, 0.08);
+}
+
+.view-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ensure rows kiss each other (no gap) */
+.view-row + .view-row {
+  margin-top: 0;
+}
+
+.pill-option {
+  border: none;
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: inherit;
+}
+
+.pill-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  background-color: transparent;
+  box-sizing: border-box;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.pill-option.active .pill-dot {
+  background-color: currentColor;
+  transform: scale(1.05);
+}
+
+/* ------------------------ Index grid -------------------- */
+
+.index-page {
+  padding-top: 10px;
+}
+
+.project-grid {
+  padding: 28px 40px 64px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 24px;
+  row-gap: 40px; /* space between row1 / row2 */
+}
+
+.project-grid.hidden {
+  display: none;
+}
+
+.project-card {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+}
+
+.project-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  padding: 4px 4px 10px;
+  transition: background-color 0.22s ease, transform 0.18s ease;
+}
+
+.project-image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: #d8d8d8;
+}
+
+.project-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.project-caption {
+  margin-top: 10px;
+}
+
+.project-number {
+  margin-bottom: 2px;
+}
+
+.project-title {
+  margin-bottom: 2px;
+}
+
+.project-meta {
+  opacity: 0.9;
+}
+
+body.theme-light .project-link:hover {
+  background-color: var(--index-row-hover);
+}
+
+body.theme-dark .project-link:hover {
+  background-color: var(--index-row-hover);
+}
+
+.project-link:hover img {
+  transform: scale(1.04);
+}
+
+/* ---------------------- Index list view ----------------- */
+
+.project-list {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 40px 72px;
+  display: grid;
+  grid-template-columns: minmax(0, 3.3fr) minmax(0, 2.1fr);
+  gap: 40px;
+}
+
+.project-list.hidden {
+  display: none;
+}
+
+.project-list-left {
+  min-width: 0;
+}
+
+.project-list-rows {
+  border-top: 1px solid var(--border-color);
+}
+
+.project-list-row {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  background: transparent;
+  text-align: left;
+  padding: 10px 4px;
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1.8fr) 1fr 80px;
+  column-gap: 18px;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.18s ease;
+}
+
+.project-list-row:hover,
+.project-list-row.active {
+  background-color: var(--index-row-hover);
+}
+
+.list-col {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title-col {
+  white-space: nowrap;
+}
+
+.project-list-row.active::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background-color: currentColor;
+}
+
+/* preview side */
+
+.project-list-preview {
+  position: relative;
+}
+
+.preview-frame {
+  position: sticky;
+  top: 120px;
+  background-color: #000;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.preview-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* -------------------------- Info page ------------------- */
+
+.info-page {
+  padding: 26px 40px 80px;
+}
+
+.info-grid {
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  column-gap: 60px;
+  margin-bottom: 32px;
+  align-items: flex-start;
+}
+
+.info-label {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 13px;
+  margin: 0;
+  padding-top: 2px;
+}
+
+.info-content {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.info-content p {
+  margin: 0 0 8px;
+}
+
+.info-note {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  font-size: 12px;
+}
+
+/* --------------------------- Film page ------------------ */
+
+.film-page {
+  padding: 26px 40px 80px;
+}
+
+.film-hero {
+  max-width: 1200px;
+  margin: 32px auto 0;
+}
+
+.film-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 40px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  margin-bottom: 18px;
+}
+
+.film-meta-item {
+  display: flex;
+  gap: 8px;
+}
+
+.film-meta-label {
+  opacity: 0.8;
+}
+
+.film-video-frame {
+  width: 100%;
+}
+
+.video-aspect {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  overflow: hidden;
+  background: #000;
+}
+
+.video-aspect iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Logline / notes / credits */
+
+.film-copy {
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+.film-text-block + .film-text-block {
+  margin-top: 24px;
+}
+
+.film-text-block h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin: 0 0 8px;
+}
+
+.film-text-block p {
+  margin: 0 0 6px;
+}
+
+/* Thumbnails */
+
+.film-thumbs {
+  max-width: 1200px;
+  margin: 48px auto 0;
+}
+
+.section-heading {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.film-thumb-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.film-thumb {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.film-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* next link footer */
+
+.page-footer.next-link {
+  max-width: 1200px;
+  margin: 36px auto 0;
+}
+
+.page-footer.next-link a {
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+}
+
+.page-footer.next-link a:hover {
+  color: var(--link-hover);
+}
+
+/* -------------------- Select works page ----------------- */
+
+.select-page {
+  padding: 26px 40px 80px;
+}
+
+.gallery-grid.three-col {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.gallery-item {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-item figcaption {
+  margin-top: 8px;
+}
+
+/* ---------------------- Graphics page ------------------- */
+
+.graphics-page {
+  padding: 26px 40px 80px;
+}
+
+.graphics-grid {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.graphics-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.graphics-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.graphics-item:hover img {
+  transform: scale(1.04);
+}
+
+/* ---------------------- Site footer --------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 16px 40px 24px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ---------------------- Utilities ----------------------- */
+
+.hidden {
+  display: none !important;
+}
+
+/* --------------------- Responsive tweaks ---------------- */
+
+@media (max-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .film-thumb-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .site-header {
+    padding: 20px 20px 6px;
+  }
+
+  .index-controls,
+  .project-grid,
+  .project-list,
+  .info-page,
+  .film-page,
+  .select-page,
+  .graphics-page {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .nav-row {
+    gap: 1.2rem;
+    justify-content: flex-start;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-list-preview {
+    display: none;
+  }
+
+  .info-row {
+    grid-template-columns: 130px minmax(0, 1fr);
+    column-gap: 32px;
+  }
+
+  .gallery-grid.three-col,
+  .graphics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .film-thumb-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 560px) {
+  .gallery-grid.three-col,
+  .graphics-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .film-thumb-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
