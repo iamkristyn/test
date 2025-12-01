@@ -1,146 +1,254 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
   <title>Kristyn He — Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kristyn He — film, stills, selected work.">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-<div class="page" data-theme="light">
-<header class="site-header">
-  <div class="site-header__left">
-    <a href="index.html" class="brand">KRISTYN&nbsp;HE</a>
-    <span class="tagline">visual artist &amp; filmmaker</span>
-  </div>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="index.html">INDEX</a>
-    <a href="info.html">INFO</a>
-    <a href="film.html">FILM</a>
-    <a href="selected-work.html">SELECTED&nbsp;WORK</a>
-    <a href="graphics.html">GRAPHICS</a>
-  </nav>
-  <div class="site-header__right">
-    <a href="mailto:you@example.com" class="contact-link">CONTACT</a>
-    <button type="button" class="theme-toggle" data-mode="light">LIGHT</button>
-    <button type="button" class="theme-toggle" data-mode="dark">DARK</button>
-  </div>
-</header>
-
-<main>
-  <section class="filter-bar fade-in">
-    <div class="filter-group">
-      <button class="pill pill--active" data-view="grid">● GRID</button>
-      <button class="pill" data-view="list">○ LIST</button>
+<body class="page-index" data-theme="light">
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="site-identity">
+        <a href="index.html" class="site-title">KRISTYN HE</a>
+        <div class="site-subtitle">FILMMAKER &amp; VISUAL ARTIST</div>
+      </div>
+      <div class="site-nav-wrap">
+        <nav class="site-nav">
+          <a href="index.html" data-nav="index">INDEX</a>
+          <a href="info.html" data-nav="info">INFO</a>
+          <a href="film.html" data-nav="film">FILM</a>
+          <a href="select-works.html" data-nav="select-works">SELECT WORKS</a>
+          <a href="graphics.html" data-nav="graphics">GRAPHICS</a>
+        </nav>
+        <button class="theme-toggle" type="button" data-theme-toggle>
+          <span>LIGHT / DARK</span>
+        </button>
+      </div>
     </div>
-    <div class="filter-group">
-      <button class="pill pill--active" data-filter="all">● ALL</button>
-      <button class="pill" data-filter="film">○ FILM</button>
-      <button class="pill" data-filter="still">○ STILL</button>
-      <button class="pill" data-filter="graphic">○ GRAPHIC</button>
-    </div>
-  </section>
+  </header>
 
-  <section class="work-grid js-work-grid">
-    <article class="work-card fade-in" data-category="film">
-      <a href="film.html" class="work-card__image-link">
-        <img src="https://images.pexels.com/photos/6898859/pexels-photo-6898859.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Film still placeholder 1">
-      </a>
-      <div class="work-card__meta">
-        <span class="work-card__index">1</span>
-        <div class="work-card__text">
-          <div class="work-card__title">under current</div>
-          <div class="work-card__row">short film</div>
-          <div class="work-card__row">[FILM]</div>
-          <div class="work-card__row">2025</div>
+  <main class="page-inner" data-page="index">
+
+    <!-- FILTER BLOCK -->
+    <section class="filter-block" aria-label="View and category filters">
+      <div class="filter-row">
+        <button class="filter-option is-active" type="button" data-view="grid">
+          <span class="filter-dot"></span>
+          <span>GRID</span>
+        </button>
+        <button class="filter-option" type="button" data-view="list">
+          <span class="filter-dot"></span>
+          <span>LIST</span>
+        </button>
+      </div>
+      <div class="filter-row">
+        <button class="filter-option is-active" type="button" data-filter="all">
+          <span class="filter-dot"></span>
+          <span>ALL</span>
+        </button>
+        <button class="filter-option" type="button" data-filter="film">
+          <span class="filter-dot"></span>
+          <span>FILM</span>
+        </button>
+        <button class="filter-option" type="button" data-filter="still">
+          <span class="filter-dot"></span>
+          <span>STILL</span>
+        </button>
+        <button class="filter-option" type="button" data-filter="graphic">
+          <span class="filter-dot"></span>
+          <span>GRAPHIC</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="projects-section">
+
+      <!-- GRID VIEW -->
+      <div class="projects-grid">
+        <!-- 1: UNDERCURRENT -->
+        <article class="project-card" data-category="film">
+          <a href="film.html" class="project-card-inner">
+            <figure class="project-thumb">
+              <img src="assets/undercurrent -1.jpg" alt="Undercurrent still" />
+            </figure>
+            <div class="project-caption">
+              <span class="project-caption-line">01</span>
+              <span class="project-caption-line">UNDERCURRENT</span>
+              <span class="project-caption-line">[SHORT FILM] · [DRAMA]</span>
+              <span class="project-caption-line">04.2025</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- 2: film2 -->
+        <article class="project-card" data-category="film">
+          <a href="film2.html" class="project-card-inner">
+            <figure class="project-thumb">
+              <img src="assets/IMG_0357.PNG" alt="Select works preview" />
+            </figure>
+            <div class="project-caption">
+              <span class="project-caption-line">02</span>
+              <span class="project-caption-line">TiMELOOP</span>
+              <span class="project-caption-line">[Experimental] · [SHORT FILM] · [DRAMA]</span>
+              <span class="project-caption-line">05.2023</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- 3: GRAPHICS -->
+        <article class="project-card" data-category="graphic">
+          <a href="graphics.html" class="project-card-inner">
+            <figure class="project-thumb">
+              <img src="https://images.pexels.com/photos/2693203/pexels-photo-2693203.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Graphic experiments" />
+            </figure>
+            <div class="project-caption">
+              <span class="project-caption-line">03</span>
+              <span class="project-caption-line">GRAPHIC EXPERIMENTS</span>
+              <span class="project-caption-line">[GRAPHIC] · 2022–2025</span>
+              <span class="project-caption-line">2025</span>
+            </div>
+          </a>
+        </article>
+
+        <!-- 4 placeholders -->
+        <article class="project-card" data-category="still">
+          <a href="select-works.html" class="project-card-inner">
+            <figure class="project-thumb">
+              <img src="https://images.pexels.com/photos/6898854/pexels-photo-6898854.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Future film project" />
+            </figure>
+            <div class="project-caption">
+              <span class="project-caption-line">04</span>
+              <span class="project-caption-line">FUTURE SHORT 01</span>
+              <span class="project-caption-line">[FILM]</span>
+              <span class="project-caption-line">YYYY</span>
+            </div>
+          </a>
+        </article>
+
+          <!-- 5 placeholders -->
+        <article class="project-card" data-category="still">
+          <a href="select-works.html" class="project-card-inner">
+            <figure class="project-thumb">
+              <img src="https://images.pexels.com/photos/2906606/pexels-photo-2906606.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Photo placeholder" />
+            </figure>
+            <div class="project-caption">
+              <span class="project-caption-line">05</span>
+              <span class="project-caption-line">CITY STILLS</span>
+              <span class="project-caption-line">[STILL]</span>
+              <span class="project-caption-line">2024</span>
+            </div>
+          </a>
+        </article>
+
+          <!-- 6placeholders -->
+        <article class="project-card" data-category="still">
+          <a href="select-works.html" class="project-card-inner">
+            <figure class="project-thumb">
+              <img src="https://images.pexels.com/photos/4502711/pexels-photo-4502711.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Portrait series" />
+            </figure>
+            <div class="project-caption">
+              <span class="project-caption-line">06</span>
+              <span class="project-caption-line">PORTRAIT SERIES</span>
+              <span class="project-caption-line">[STILL]</span>
+              <span class="project-caption-line">2023</span>
+            </div>
+          </a>
+        </article>
+
+          <!-- 7 placeholders -->
+        <article class="project-card" data-category="graphic">
+          <a href="graphics.html" class="project-card-inner">
+            <figure class="project-thumb">
+              <img src="https://images.pexels.com/photos/2706379/pexels-photo-2706379.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Type experiments" />
+            </figure>
+            <div class="project-caption">
+              <span class="project-caption-line">07</span>
+              <span class="project-caption-line">TYPE TESTS</span>
+              <span class="project-caption-line">[GRAPHIC]</span>
+              <span class="project-caption-line">2024</span>
+            </div>
+          </a>
+        </article>
+
+          <!-- 8 placeholders -->
+        <article class="project-card" data-category="still">
+          <a href="film.html" class="project-card-inner">
+            <figure class="project-thumb">
+              <img src="https://images.pexels.com/photos/6898851/pexels-photo-6898851.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Future project placeholder" />
+            </figure>
+            <div class="project-caption">
+              <span class="project-caption-line">08</span>
+              <span class="project-caption-line">FUTURE PROJECT</span>
+              <span class="project-caption-line">[WORK IN PROGRESS]</span>
+              <span class="project-caption-line">TBC</span>
+            </div>
+          </a>
+        </article>
+      </div>
+
+      <!-- LIST VIEW -->
+      <div class="list-wrapper">
+        <div class="list-table">
+          <div class="project-row" data-category="film" data-preview="https://images.pexels.com/photos/6898859/pexels-photo-6898859.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div>01</div>
+            <div>UNDER CURRENT</div>
+            <div>[FILM]</div>
+            <div>2025</div>
+          </div>
+          <div class="project-row" data-category="still" data-preview="https://images.pexels.com/photos/2837009/pexels-photo-2837009.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div>02</div>
+            <div>SELECT WORKS</div>
+            <div>[STILLS]</div>
+            <div>2025</div>
+          </div>
+          <div class="project-row" data-category="graphic" data-preview="https://images.pexels.com/photos/2693203/pexels-photo-2693203.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div>03</div>
+            <div>GRAPHIC EXPERIMENTS</div>
+            <div>[GRAPHIC]</div>
+            <div>2025</div>
+          </div>
+          <div class="project-row" data-category="film" data-preview="https://images.pexels.com/photos/6898854/pexels-photo-6898854.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div>04</div>
+            <div>FUTURE SHORT 01</div>
+            <div>[FILM]</div>
+            <div>YYYY</div>
+          </div>
+          <div class="project-row" data-category="still" data-preview="https://images.pexels.com/photos/2906606/pexels-photo-2906606.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div>05</div>
+            <div>CITY STILLS</div>
+            <div>[STILL]</div>
+            <div>2024</div>
+          </div>
+          <div class="project-row" data-category="still" data-preview="https://images.pexels.com/photos/4502711/pexels-photo-4502711.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div>06</div>
+            <div>PORTRAIT SERIES</div>
+            <div>[STILL]</div>
+            <div>2023</div>
+          </div>
+          <div class="project-row" data-category="graphic" data-preview="https://images.pexels.com/photos/2706379/pexels-photo-2706379.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div>07</div>
+            <div>TYPE TESTS</div>
+            <div>[GRAPHIC]</div>
+            <div>2024</div>
+          </div>
+          <div class="project-row" data-category="film" data-preview="https://images.pexels.com/photos/6898851/pexels-photo-6898851.jpeg?auto=compress&cs=tinysrgb&w=800">
+            <div>08</div>
+            <div>FUTURE PROJECT</div>
+            <div>[FILM]</div>
+            <div>TBC</div>
+          </div>
+        </div>
+        <div class="list-preview">
+          <img src="https://images.pexels.com/photos/6898859/pexels-photo-6898859.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Project preview" />
         </div>
       </div>
-    </article>
+    </section>
+  </main>
 
-    <article class="work-card fade-in" data-category="film">
-      <a href="film.html" class="work-card__image-link">
-        <img src="https://images.pexels.com/photos/6898852/pexels-photo-6898852.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Film still sea">
-      </a>
-      <div class="work-card__meta">
-        <span class="work-card__index">2</span>
-        <div class="work-card__text">
-          <div class="work-card__title">tide / loop</div>
-          <div class="work-card__row">film experiment</div>
-          <div class="work-card__row">[FILM]</div>
-          <div class="work-card__row">2023</div>
-        </div>
-      </div>
-    </article>
-
-    <article class="work-card fade-in" data-category="still">
-      <a href="selected-work.html" class="work-card__image-link">
-        <img src="https://images.pexels.com/photos/2837009/pexels-photo-2837009.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Portrait still">
-      </a>
-      <div class="work-card__meta">
-        <span class="work-card__index">3</span>
-        <div class="work-card__text">
-          <div class="work-card__title">red thread / portrait</div>
-          <div class="work-card__row">stills series</div>
-          <div class="work-card__row">[STILL]</div>
-          <div class="work-card__row">2024</div>
-        </div>
-      </div>
-    </article>
-
-    <article class="work-card fade-in" data-category="still">
-      <a href="selected-work.html" class="work-card__image-link">
-        <img src="https://images.pexels.com/photos/2837003/pexels-photo-2837003.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hands">
-      </a>
-      <div class="work-card__meta">
-        <span class="work-card__index">4</span>
-        <div class="work-card__text">
-          <div class="work-card__title">breathing walls</div>
-          <div class="work-card__row">still life study</div>
-          <div class="work-card__row">[STILL]</div>
-          <div class="work-card__row">2023</div>
-        </div>
-      </div>
-    </article>
-
-    <article class="work-card fade-in" data-category="graphic">
-      <a href="graphics.html" class="work-card__image-link">
-        <img src="https://images.pexels.com/photos/2696469/pexels-photo-2696469.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Graphic collage">
-      </a>
-      <div class="work-card__meta">
-        <span class="work-card__index">5</span>
-        <div class="work-card__text">
-          <div class="work-card__title">dream core poster</div>
-          <div class="work-card__row">graphic / collage</div>
-          <div class="work-card__row">[GRAPHIC]</div>
-          <div class="work-card__row">2024</div>
-        </div>
-      </div>
-    </article>
-
-    <article class="work-card fade-in" data-category="graphic">
-      <a href="graphics.html" class="work-card__image-link">
-        <img src="https://images.pexels.com/photos/1767434/pexels-photo-1767434.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Graphic pattern">
-      </a>
-      <div class="work-card__meta">
-        <span class="work-card__index">6</span>
-        <div class="work-card__text">
-          <div class="work-card__title">kristyn universe zine</div>
-          <div class="work-card__row">print / web</div>
-          <div class="work-card__row">[GRAPHIC]</div>
-          <div class="work-card__row">2024</div>
-        </div>
-      </div>
-    </article>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <span>© 2025 KRISTYN HE</span>
-  <span>portfolio draft — layout inspired by editorial grids</span>
-</footer>
-
-<script src="scripts.js"></script>
-</div>
+  <script src="scripts.js"></script>
 </body>
 </html>
