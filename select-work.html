@@ -91,17 +91,18 @@
   </main>
 
   <!-- ===== Modal for Select Works images ===== -->
-  <div class="sw-modal" id="sw-modal" aria-hidden="true">
-    <div class="sw-modal-inner">
-      <button class="sw-modal-close" type="button" aria-label="Close image">×</button>
-      <img class="sw-modal-image" src="" alt="" />
-      <div class="sw-modal-text"></div>
-    </div>
-  </div>
 
-  <script src="scripts.js"></script>
-</body>
-</html>
+  <!-- 模态框HTML结构 -->
+  <div class="modal-overlay" id="imageModal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <button class="modal-nav modal-prev" id="modalPrev">&#10094;</button>
+    <button class="modal-nav modal-next" id="modalNext">&#10095;</button>
+    
+    <div class="modal-content">
+        <img class="modal-image" id="expandedImage" alt="放大图片">
+        <div class="image-info" id="imageCaption"></div>
+    </div>
+</div>
 
   <script src="scripts.js"></script>
 </body>
