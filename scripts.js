@@ -103,4 +103,70 @@ document.addEventListener("DOMContentLoaded", () => {
     setView("grid");
     applyFilter("all");
   }
+  
+  // ===== Select Works page – modal images =====
+  if (body.classList.contains("page-select-works")) {
+    const swItems = document.querySelectorAll(".sw-item");
+    const modal = document.getElementById("sw-modal");
+    const modalImg = modal?.querySelector(".sw-modal-image");
+    const modalText = modal?.querySelector(".sw-modal-text");
+    const modalClose = modal?.querySelector(".sw-modal-close");
+
+    if (!modal || !modalImg || !modalText || !modalClose) return;
+
+    function openModal(imgSrc, imgAlt, captionText) {
+      modalImg.src = imgSrc;
+      modalImg.alt = imgAlt || "";
+      modalText.textContent = captionText || "";
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      // 禁止页面在模态框打开时滚动（体验更好）
+      body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      modalImg.src = "";
+      body.style.overflow = ""; // 恢复滚动
+    }
+
+    // 为每一个缩略图绑定点击事件
+    swItems.forEach(item => {
+      item.addEventListener("click", () => {
+        const img = item.querySelector("img");
+        const caption = item.querySelector(".sw-caption");
+        if (!img) return;
+
+        const imgSrc = img.getAttribute("src");
+        const imgAlt = img.getAttribute("alt") || "";
+        const captionText = caption ? caption.textContent.trim() : "";
+
+        if (imgSrc) {
+          openModal(imgSrc, imgAlt, captionText);
+        }
+      });
+    });
+
+    // 点击关闭按钮关闭
+    modalClose.addEventListener("click", () => {
+      closeModal();
+    });
+
+    // 点击背景区域（遮罩层）关闭
+    modal.addEventListener("click", (event) => {
+      // 只有点在最外层背景上，才关闭；避免点在内容区也关闭
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    // 按下 Esc 键关闭
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("is-open")) {
+        closeModal();
+      }
+    });
+  }
+  
 });
